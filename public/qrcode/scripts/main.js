@@ -1,4 +1,6 @@
 // http://www.i-programmer.info/programming/graphics-and-imaging/3254-svg-javascript-and-the-dom.html
+// dashboard
+
 var rect = function (w, h, border_color, border_width) {
     var NS = "http://www.w3.org/2000/svg";
     var SVGObj = document.createElementNS(NS, "rect");
@@ -37,17 +39,6 @@ var start = function () {
 };
 
 var finish = function (result) {
-    // window.onload = function() {
-    //     var button = document.getElementById('open-url');
-    //     setInterval(function() {
-    //         button.click();
-    //     }, 100000); // this will make it click again every 1000 miliseconds
-    //     }
-    // var openUrlButton = document.getElementById('open-url');
-    //     setInterval(function() {
-    //         openUrlButton.click();
-    //     }, 100000); // this 
-    
     var openUrlButton = document.querySelector("#open-url");
     if (/https?:\/\/.*/.test(result))
         openUrlButton.style.display = 'inline-block';

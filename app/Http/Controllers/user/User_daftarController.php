@@ -16,9 +16,9 @@ class User_daftarController extends Controller
          ->where('user_id', '=', auth()->user()->id)
          ->get();
 
-      if (Auth::user()->status == 'aktif-magang')
-         return redirect('/user');
-      else
-         return view('user.user-daftar', ['form' => $form]);
+      // if (Auth::user()->status == 'aktif-magang')
+      //    return redirect('/user');
+      // else
+         return view('user.daftar-magang.user-daftar', ['form' => $form]);
    }
 }

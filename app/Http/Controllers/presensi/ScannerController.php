@@ -107,7 +107,7 @@ class ScannerController extends Controller
             ]);
             return redirect('/dashboard/scan-istirahat')->with('status', 'Presensi Istirahat Berhasil!');
         } else {
-            return redirect('/dashboard/scan-istirahat')->with('status', 'Presensi Istirahat Sudah Ada!');
+            return redirect('/dashboard/scan-istirahat')->with('status', 'Sudah Melakukan Presensi Istirahat!');
         }
     }
 
@@ -130,7 +130,7 @@ class ScannerController extends Controller
             ]);
             return redirect('/dashboard/scan-kembali')->with('status', 'Presensi kembali Berhasil!');
         } else {
-            return redirect('/dashboard/scan-kembali')->with('status', 'Presensi kembali Sudah Ada!');
+            return redirect('/dashboard/scan-kembali')->with('status', 'Sudah Melakukan Presensi kembali!');
         }
     }
 
@@ -142,19 +142,26 @@ class ScannerController extends Controller
         $tanggal = $date->format('l, d-m-Y');
         $localtime = $date->format('H:i:s');
 
+
         $presensi = Presensi::where([
             ['user_id', '=', $request->user_id],
             ['tgl', '=', $tanggal],
         ])->first();
-        $dt = [
-            'status' => 'pulang',
-            'jampulang' => $localtime,
-        ];
+
+        $hitung_masuk = date(
+            'H:i:s', strtotime($presensi->jamkembali_masuk) - strtotime($presensi->jamkeluar));
+        // $hitung_istirahat = strtotime('jammasuk_kembali') - strtotime('jamkeluar');
+        // $hitung_jamkerja = $hitung_masuk - $hitung_istirahat;
+
         if ($presensi->jampulang == "") {
-            $presensi->update($dt);
+            $presensi->update([
+                'jampulang' => $localtime,
+                'status' => 'pulang',
+                'jamkerja' => $hitung_masuk
+            ]);
             return redirect('/dashboard/scan-pulang')->with('status', 'Presensi Pulang Berhasil!');
-        } else {
-            return redirect('/dashboard/scan-pulang') > with('status', 'Presensi Pulang Sudah Ada');
+        } elseif (($presensi->jampulang != "")) {
+            return redirect('/dashboard/scan-pulang')->with('status', 'Sudah Melakukan Presensi Pulang!');
         }
     }
 }

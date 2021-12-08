@@ -65,6 +65,15 @@ class DashboardController extends Controller
         $form = DB::table('form')->latest()
             ->paginate(3);
 
+        $users = DB::table('users')
+            ->where([
+                ['tgl', '=', $tanggal],
+            ])
+            ->select('users.*', 'presensi.status as status', 'presensi.tgl as tgl', )
+            ->join('presensi', 'users.id', '=', 'presensi.user_id')
+            ->latest()
+            ->get();
+
 
         // return view('admin.admin', ['aktif_magang' => $aktif_magang, 'daftar_magang' => $daftar_magang ]);
         return view('admin.dashboard.dashboard', [
@@ -82,6 +91,7 @@ class DashboardController extends Controller
             'youtube' => $youtube,
             'lain' => $lain,
             'form' => $form,
+            'users' => $users,
         ]);
     }
 }

@@ -11,7 +11,7 @@ class Presensi extends Model
     protected $table = "presensi";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','user_id','tgl','jammasuk','jamkeluar','jammasuk_kembali','jampulang','jamkerja','aktivitas_log', 'status', 'keterangan_masuk', 'keterangan_istirahat', 'keterangan_kembali', 'keterangan_pulang'];
+        'id','user_id','tgl','jammasuk','jamkeluar','jammasuk_kembali','jampulang','jamkerja','aktivitas_log', 'status','keterangan_ijin','surat_ijin', 'keterangan_masuk', 'keterangan_istirahat', 'keterangan_kembali', 'keterangan_pulang'];
 
     public function user()
     {

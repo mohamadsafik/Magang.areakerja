@@ -8,6 +8,13 @@
     <title>Dashboard - Areakerja</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <!-- scan -->
+    <link rel="stylesheet" type="text/css" href="/qrcode/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
     <!-- Favicons -->
     <link href="{{asset('assets/dashboard/img/favicon.png')}}" rel="icon">
@@ -401,14 +408,14 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            <div id="scanlog" class="show-on-scan">ScanQR</div>
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
         </div>
     </footer><!-- End Footer -->
 
@@ -423,6 +430,24 @@
     <script src="{{asset('assets/dashboard/vendor/chart.js/chart.min.js')}}"></script>
     <script src="{{asset('assets/dashboard/vendor/apexcharts/apexcharts.min.js')}}"></script>
     <script src="{{asset('assets/dashboard/vendor/echarts/echarts.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/grid.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/version.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/detector.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/formatinf.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/errorlevel.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/bitmat.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/datablock.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/bmparser.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/datamask.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/rsdecoder.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/gf256poly.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/gf256.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/decoder.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/qrcode.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/findpat.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/alignpat.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/jsqrcode/databr.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/qrcode/scripts/main.js')}}"></script>
 
     <!-- Template Main JS File -->
     <script src="{{asset('assets/dashboard/js/main.js')}}"></script>

@@ -15,7 +15,7 @@ class UserController extends Controller
         
         $qrcode = QrCode::size(250)->generate(Auth()->user()->id);
         if (Auth::user()->status == 'aktif-magang')
-            return view('user.user', ['qrcode' => $qrcode]);
+            return view('user.aktif-magang.user', ['qrcode' => $qrcode]);
         elseif (Auth::user()->status == 'daftar-magang')
             return redirect('/user-daftar');
     }
@@ -28,6 +28,6 @@ class UserController extends Controller
             ->join('users', 'presensi.user_id', '=', 'users.id')
             ->latest()
             ->get();
-        return view('user.data-presensi', ['presensi' => $presensi]);
+        return view('user.aktif-magang.data-presensi', ['presensi' => $presensi]);
     }
 }

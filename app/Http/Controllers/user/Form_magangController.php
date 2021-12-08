@@ -17,7 +17,7 @@ class Form_magangController extends Controller
     {
         $form = DB::table('form')->get();
         if (Auth::user()->status == '') {
-            return view('user.form-magang', ['form' => $form]);
+            return view('user.daftar-magang.form-magang', ['form' => $form]);
         } elseif (Auth::user()->status == 'daftar-magang') {
             return redirect('user-daftar');
         }

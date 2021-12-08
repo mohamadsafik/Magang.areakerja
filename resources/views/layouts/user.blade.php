@@ -13,6 +13,10 @@
     <link href="{{asset('assets/user/img/')}}" rel="icon">
     <link href="{{asset('assets/user/img/apple-touch-logo.png')}}" rel="apple-touch-icon">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -46,11 +50,9 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#">Tugas</a></li>
+                    <li><a class="nav-link scrollto" href="{{url('/user')}}">Halaman Utama</a></li>
                     <li><a class="nav-link scrollto" href="{{url('/user/data-presensi/'.Auth::user()->id)}}">Data Presensi</a></li>
                     <li><a class="nav-link scrollto" href="#">Laporan Progress</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a class="nav-link scrollto " href="#portfolio">Sertifikat</a></li>
                     @guest
                     @if (Route::has('login'))
                     <li class="dropdown"><a href="login"><span>login</span> <i class="bi bi-chevron-down"></i></a>
@@ -77,7 +79,6 @@
                     @endif
 
                     @endguest
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

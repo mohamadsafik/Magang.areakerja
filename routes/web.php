@@ -63,18 +63,10 @@ Route::get('/home', [HomeController::class, 'index']);
 
 
 route::post('/simpan-aktivitas', [PresensiController::class, 'simpan_aktivitas']);
-route::get('/aktivitas-log', [PresensiController::class, 'aktivitas']);
+route::get('/user/aktivitas-log', [PresensiController::class, 'aktivitas']);
+route::get('/user/presensi-ijin', [PresensiController::class, 'presensi_ijin']);
 
 
-
-
-
-// route::get('/presensi', [PresensiController::class, 'presensi'])->name('presensi');
-// Route::post('/simpan-presensi/{user_id}', [PresensiController::class, 'presensi_mulai'])->name('simpan-presensi');
-// Route::post('/simpan-masuk', [PresensiController::class, 'presensi_masuk'])->name('simpan-masuk');
-// Route::post('/simpan-istirahat', [PresensiController::class, 'presensi_istirahat'])->name('simpan-istirahat');
-// Route::post('/simpan-kembali', [PresensiController::class, 'presensi_kembali'])->name('simpan-kembali');
-// Route::post('/simpan-pulang', [PresensiController::class, 'presensi_pulang'])->name('simpan-pulang');
 route::middleware(['auth', 'ceklevel:user'])
     ->group(function () {
         Route::get('/user', [UserController::class, 'index']);

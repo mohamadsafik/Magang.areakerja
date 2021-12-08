@@ -50,8 +50,14 @@
                                         <td class="badge bg-warning col-12">Ijin</td>
                                         @elseif ($p->status == "")
                                         <td>tanpa keterangan</td>         
-                                        @else
+                                        @elseif ($p->status == "masuk")
                                         <td class="badge bg-primary col-12">masuk</td>
+                                        @elseif ($p->status == "istirahat")
+                                        <td class="badge bg-primary col-12">istirahat</td>
+                                        @elseif ($p->status == "kembali")
+                                        <td class="badge bg-primary col-12">kembali</td>
+                                        @elseif ($p->status == "pulang")
+                                        <td class="badge bg-primary col-12">pulang</td>
                                         @endif
                                     </tr>
                                   
